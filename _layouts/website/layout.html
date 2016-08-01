@@ -17,12 +17,275 @@
     {{ super() }}
 
     {### Custom stylesheets for the book ###}
+    <style>
+    .header {
+        background: rgba(248,248,248,0.98);
+        box-shadow: 1px 0 3px rgba(34,34,34,0.18);
+        max-height: 6.5rem;
+        padding-bottom: 1.2rem;
+        padding-top: 1rem;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 90;
+        font-family: "Source Sans Pro",sans-serif;
+    }
 
+    .header a {
+        color: #422d3f;
+        font-weight: normal;
+        text-decoration: none;
+    }
+
+    .header a:hover, .header a:focus {
+        color: #e5373a;
+        outline: none;
+    }
+
+    .header * {
+        box-sizing: border-box;
+    }
+
+    .header nav {
+        max-width: 930px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 1.5rem;
+    }
+
+    .header__menu {
+        display: inline-block;
+        float: right;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        text-transform: uppercase;
+    }
+
+    .header__menu-item {
+        color: #422d3f;
+        cursor: pointer;
+        display: none;
+        font-size: 1.6rem;
+        height: 100%;
+        letter-spacing: 0.05rem;
+        padding: 1rem 1.5rem;
+        text-decoration: none;
+    }
+
+    .header__menu-item:hover, .header__menu-item:focus {
+        color: #e5373a;
+    }
+
+    .header__menu-item--has-dropdown {
+        position: relative;
+    }
+
+    .header__menu-item--has-dropdown:hover .dropdown {
+        display: block;
+    }
+
+    .header__menu-item--button {
+        display: none;
+        margin: 0;
+    }
+
+    .header__logo-image {
+        width: 11rem;
+        float: left;
+        margin-top: 1.6rem;
+    }
+
+    .btn3d {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        -o-appearance: none;
+        appearance: none;
+        -webkit-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+        background: #e5373a;
+        border-radius: 4px;
+        box-shadow: 0 3px 0 0 #a11517;
+        color: #fff !important;
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 0.1rem;
+        line-height: 1.2;
+        min-height: 38px;
+        padding: 1.2rem 2rem;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    .btn3d:hover {
+        -webkit-transform: translateY(-3px);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 0 0 #a11517;
+        color: #fff;
+    }
+
+    .btn3d:active {
+        -webkit-transform: translateY(3px);
+        transform: translateY(3px);
+        background: #a11517;
+        box-shadow: 0 0 0 0 #47090a;
+    }
+
+    .dropdown {
+        background: rgba(248,248,248,0.98);
+        border: 1px solid rgba(0,0,0,0.05);
+        border-radius: 5px;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+        display: none;
+        left: 5px;
+        list-style: none;
+        margin-left: 0;
+        min-width: 180px;
+                    padding-bottom: 1rem;
+        padding-top: 1rem;
+        position: absolute;
+        top: 40px;
+        margin-top: 0;
+        padding-left: 0;
+    }
+
+    .dropdown__item a {
+        display: block;
+        font-size: 1.4rem;
+        line-height: 2rem;
+        text-decoration: none;
+        margin-bottom: 0;
+        padding: 1rem 1.5rem;
+    }
+
+    .dropdown__item a:hover {
+        background: rgba(0,0,0,0.03);
+    }
+
+    @media (min-width: 550px) {
+        .header__menu-item--button {
+            margin-left: 1.5rem;
+        }
+    }
+
+    @media (min-width: 750px) {
+        .header {
+            max-height: 6.5rem;
+        }
+
+        .header__logo-image {
+            margin-top: 1.4rem;
+        }
+    }
+
+    @media (min-width: 1000px) {
+        .header {
+            max-height: 7rem;
+        }
+
+         .header__menu-item, .header__menu-item--button {
+             display: inline-block;
+         }
+    }
+
+    .book-summary, .book-body {
+        top: 6.5rem;
+    }
+    </style>
     {% for type, style in config.styles %}
         {% if fileExists(style) and type == "website" %}
         <link rel="stylesheet" href="{{ style|resolveFile }}">
         {% endif %}
     {% endfor %}
 {% endblock %}
-
+        <!-- This is intentionally added inline to reduce patch complexity -->
+        <!-- Desktop Nav -->
+        <header class="header">
+            <nav role="navigation">
+                <a href="//rangle.io/">
+                    <img
+                         class="header__logo-image"
+                         src="//rangle.io/images/logo-rangleio-wordmark.svg"
+                         alt="Rangle.io logo">
+                </a>
+                <div class="header__menu">
+                    <span class="header__menu-item header__menu-item--has-dropdown">
+                        <span>Services</span>
+                        <ul class="dropdown">
+                            <li class="dropdown__item">
+                                <a href="//rangle.io/services/web-application-development">
+                                    Web App Development
+                                </a>
+                            </li>
+                            <li class="dropdown__item">
+                                <a href="//rangle.io/services/javascript-html5-mobile">
+                                    Mobile App Development
+                                </a>
+                            </li>
+                            <li class="dropdown__item">
+                                <a href="//rangle.io/services/migrating-to-javascript">
+                                    Tech Stack Migration
+                                </a>
+                            </li>
+                            <li class="dropdown__item">
+                                <a href="//rangle.io/services/javascript-continuous-delivery">
+                                    Development Process Consulting
+                                </a>
+                            </li>
+                            <li class="dropdown__item">
+                                <a href="//rangle.io/services/javascript-training">
+                                    Team Training &amp; Mentorship
+                                </a>
+                            </li>
+                        </ul>
+                    </span>
+                    <a class="header__menu-item"
+                       href="//rangle.io/process">
+                        Process
+                    </a>
+                    <a class="header__menu-item"
+                       href="//rangle.io/work">
+                        Work
+                    </a>
+                    <a class="header__menu-item"
+                       href="//rangle.io/events">
+                        Events
+                    </a>
+                    <a class="header__menu-item"
+                       href="//rangle.io/resources">
+                        Resources
+                    </a>
+                    <span class="header__menu-item header__menu-item--has-dropdown">
+                        <span>About</span>
+                        <ul class="dropdown">
+                            <li class="dropdown__item">
+                                <a href="//rangle.io/team">
+                                    Team
+                                </a>
+                            </li>
+                            <li class="dropdown__item">
+                                <a href="//rangle.io/careers">
+                                    Careers
+                                </a>
+                            </li>
+                            <li class="dropdown__item">
+                                <a href="//rangle.io/about/press">
+                                    Press
+                                </a>
+                            </li>
+                        </ul>
+                    </span>
+                    <a class="header__menu-item"
+                       href="//blog.rangle.io/">
+                        Blog
+                    </a>
+                    <a class="header__menu-item--button btn3d"
+                       href="//rangle.io/javascript-development-inquiry">
+                        Inquire
+                    </a>
+                </div>
+            </nav>
+        </header>
 {% block body %}{% endblock %}

@@ -17,6 +17,8 @@
                 <link rel="stylesheet" href="{{ resource.path|resolveAsset }}">
                 {% endif %}
             {% endfor %}
+            <!-- This is intentionally added inline to reduce patch complexity -->
+            <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Source+Sans+Pro&subset=latin">
         {% endblock %}
         {% block head %}{% endblock %}
     </head>
