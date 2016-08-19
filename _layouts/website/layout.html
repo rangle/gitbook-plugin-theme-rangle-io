@@ -200,92 +200,93 @@
         {% endif %}
     {% endfor %}
 {% endblock %}
-        <!-- This is intentionally added inline to reduce patch complexity -->
-        <!-- Desktop Nav -->
-        <header class="header">
-            <nav role="navigation">
-                <a href="//rangle.io/">
-                    <img
-                         class="header__logo-image"
-                         src="//rangle.io/images/logo-rangleio-wordmark.svg"
-                         alt="Rangle.io logo">
-                </a>
-                <div class="header__menu">
-                    <span class="header__menu-item header__menu-item--has-dropdown">
-                        <span>Services</span>
-                        <ul class="dropdown">
-                            <li class="dropdown__item">
-                                <a href="//rangle.io/services/web-application-development">
-                                    Web App Development
-                                </a>
-                            </li>
-                            <li class="dropdown__item">
-                                <a href="//rangle.io/services/javascript-html5-mobile">
-                                    Mobile App Development
-                                </a>
-                            </li>
-                            <li class="dropdown__item">
-                                <a href="//rangle.io/services/migrating-to-javascript">
-                                    Tech Stack Migration
-                                </a>
-                            </li>
-                            <li class="dropdown__item">
-                                <a href="//rangle.io/services/javascript-continuous-delivery">
-                                    Development Process Consulting
-                                </a>
-                            </li>
-                            <li class="dropdown__item">
-                                <a href="//rangle.io/services/javascript-training">
-                                    Team Training &amp; Mentorship
-                                </a>
-                            </li>
-                        </ul>
-                    </span>
-                    <a class="header__menu-item"
-                       href="//rangle.io/process">
-                        Process
-                    </a>
-                    <a class="header__menu-item"
-                       href="//rangle.io/work">
-                        Work
-                    </a>
-                    <a class="header__menu-item"
-                       href="//rangle.io/events">
-                        Events
-                    </a>
-                    <a class="header__menu-item"
-                       href="//rangle.io/resources">
-                        Resources
-                    </a>
-                    <span class="header__menu-item header__menu-item--has-dropdown">
-                        <span>About</span>
-                        <ul class="dropdown">
-                            <li class="dropdown__item">
-                                <a href="//rangle.io/team">
-                                    Team
-                                </a>
-                            </li>
-                            <li class="dropdown__item">
-                                <a href="//rangle.io/careers">
-                                    Careers
-                                </a>
-                            </li>
-                            <li class="dropdown__item">
-                                <a href="//rangle.io/about/press">
-                                    Press
-                                </a>
-                            </li>
-                        </ul>
-                    </span>
-                    <a class="header__menu-item"
-                       href="//blog.rangle.io/">
-                        Blog
-                    </a>
-                    <a class="header__menu-item--button btn3d"
-                       href="//rangle.io/javascript-development-inquiry">
-                        Inquire
-                    </a>
-                </div>
-            </nav>
-        </header>
-{% block body %}{% endblock %}
+{% block rangleheader %}
+  <!-- This is intentionally added inline to reduce patch complexity -->
+  <!-- Desktop Nav -->
+  <header class="header">
+      <nav role="navigation">
+          <a href="//rangle.io/">
+              <img
+                   class="header__logo-image"
+                   src="//rangle.io/images/logo-rangleio-wordmark.svg"
+                   alt="Rangle.io logo">
+          </a>
+          <div class="header__menu">
+              <span class="header__menu-item header__menu-item--has-dropdown">
+                  <span>Services</span>
+                  <ul class="dropdown">
+                      <li class="dropdown__item">
+                          <a href="//rangle.io/services/web-application-development">
+                              Web App Development
+                          </a>
+                      </li>
+                      <li class="dropdown__item">
+                          <a href="//rangle.io/services/javascript-html5-mobile">
+                              Mobile App Development
+                          </a>
+                      </li>
+                      <li class="dropdown__item">
+                          <a href="//rangle.io/services/migrating-to-javascript">
+                              Tech Stack Migration
+                          </a>
+                      </li>
+                      <li class="dropdown__item">
+                          <a href="//rangle.io/services/javascript-continuous-delivery">
+                              Development Process Consulting
+                          </a>
+                      </li>
+                      <li class="dropdown__item">
+                          <a href="//rangle.io/services/javascript-training">
+                              Team Training &amp; Mentorship
+                          </a>
+                      </li>
+                  </ul>
+              </span>
+              <a class="header__menu-item"
+                 href="//rangle.io/process">
+                  Process
+              </a>
+              <a class="header__menu-item"
+                 href="//rangle.io/work">
+                  Work
+              </a>
+              <a class="header__menu-item"
+                 href="//rangle.io/events">
+                  Events
+              </a>
+              <a class="header__menu-item"
+                 href="//rangle.io/resources">
+                  Resources
+              </a>
+              <span class="header__menu-item header__menu-item--has-dropdown">
+                  <span>About</span>
+                  <ul class="dropdown">
+                      <li class="dropdown__item">
+                          <a href="//rangle.io/team">
+                              Team
+                          </a>
+                      </li>
+                      <li class="dropdown__item">
+                          <a href="//rangle.io/careers">
+                              Careers
+                          </a>
+                      </li>
+                      <li class="dropdown__item">
+                          <a href="//rangle.io/about/press">
+                              Press
+                          </a>
+                      </li>
+                  </ul>
+              </span>
+              <a class="header__menu-item"
+                 href="//blog.rangle.io/">
+                  Blog
+              </a>
+              <a class="header__menu-item--button btn3d"
+                 href="//rangle.io/javascript-development-inquiry">
+                  Inquire
+              </a>
+          </div>
+      </nav>
+  </header>
+{% endblock %}
